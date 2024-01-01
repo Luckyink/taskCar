@@ -1,0 +1,40 @@
+#invoice-form
+{
+    --background: #efefef;
+    background-color: #efefef;
+}
+
+
+
+.filter-form-item ion-text{
+    font-weight: bolder;
+}
+
+
+.invoice-detail-header
+{
+    color:#a47b5e;
+    font-weight: bolder;
+    text-align: center;
+    font-size: large;
+}
+.invoice-detail
+{
+    text-align: right;
+}
+
+::ng-deep .dx-form-group-with-caption {
+    text-align: right; 
+}
+
+::ng-deep .dx-form-group-with-caption > .dx-form-group-content {
+    border-top: unset;  
+}
+
+::ng-deep .dx-form-group-caption{
+    color:#a47b5e;
+    font-weight: bolder;
+}
+
+
+  

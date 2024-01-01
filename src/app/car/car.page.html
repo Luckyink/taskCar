@@ -1,0 +1,44 @@
+
+<ion-content [fullscreen]="true">
+  <div class="section-header">
+    <ion-toolbar id="nav-filter-bar">
+      <ion-title slot="start">Filter</ion-title>
+  
+      
+      <ion-buttons slot="end">
+        <ion-button size="small" class="dark-button">Show</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+  <div id="filter-form" class="ion-padding">
+    <dx-form
+    [formData] = "filter"
+    [showColonAfterLabel]="false"
+    >
+    <dxo-col-count-by-screen [xs]="1" [sm]="2" [md]="3" [lg]="4"></dxo-col-count-by-screen>
+      <dxi-item
+        dataField="color"
+        editorType="dxSelectBox"
+        [editorOptions]="{ dataSource: colors, valueExpr: 'dataID',  
+                      displayExpr: 'eName' , stylingMode: 'filled', width: '100%', placeholder: '' }"
+
+      >
+        <dxo-label template="color"></dxo-label>
+      </dxi-item>
+      
+      <dxi-item class="filter-form-item" dataField="cardNo"></dxi-item>
+    </dx-form>
+  </div>
+  <div class="section-header">
+    <ion-toolbar id="nav-invoice-header-bar">
+      <ion-title slot="start">Cars</ion-title>
+      <ion-buttons slot="end">
+        <ion-button shape="round" routerLink="./add-car">
+          <ion-icon slot="icon-only" name="add-circle" ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+  <app-car-grid   [filter]="filter" class="ion-padding"></app-car-grid>
+</ion-content>
+

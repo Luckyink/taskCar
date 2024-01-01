@@ -1,0 +1,76 @@
+
+<ion-content [fullscreen]="true">
+  <div style="min-height: 100vh; overflow: auto;">
+      <div id="invoice-form" class="ion-padding">
+        <form action="/save-car" (submit)="saveCar($event)">
+          <dx-form
+            [showColonAfterLabel]="false"
+            [labelLocation]="labelPosition"
+            [formData]="carForm"
+              >
+              <dxo-col-count-by-screen [xs]="1" [sm]="1" [md]="1" [lg]="1"></dxo-col-count-by-screen>
+                <dxi-item class="filter-form-item"  itemType="group" [colSpan]="fieldGroupOneColumnSpan">
+                  <dxo-col-count-by-screen [xs]="1" [sm]="1" [md]="2" [lg]="2"></dxo-col-count-by-screen>
+                  <!-- <dxi-item class="filter-form-item"  itemType="group"> -->
+                    <dxi-item class="filter-form-item" dataField="CarNo" [editorOptions]="{ readOnly: true}">
+                      <dxo-label text="Car No"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item class="filter-form-item" dataField="UserNo" [isRequired]="true">
+                      <dxo-label text="User No"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item class="filter-form-item" dataField="ArName" [isRequired]="true">
+                      <dxo-label text="Arabic Name"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item class="filter-form-item" dataField="EnName" [isRequired]="true">
+                      <dxo-label text="English Name"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item class="filter-form-item" dataField="CardNo" [isRequired]="true">
+                      <dxo-label text="Card No"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item class="filter-form-item" dataField="Begindate" editorType="dxDateBox" [isRequired]="true"></dxi-item>
+                    <dxi-item class="filter-form-item" dataField="Enddate" editorType="dxDateBox" [isRequired]="true"></dxi-item>
+                    
+                    <dxi-item class="filter-form-item" dataField="Company" [isRequired]="true">
+                      <dxo-label text="Company"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item dataField="Color" editorType="dxSelectBox" [editorOptions]="{ dataSource: colors, valueExpr: 'dataID',  
+                      displayExpr: 'eName' , stylingMode: 'filled', width: '100%', placeholder: '', onValueChanged: editorItemChanged }" [isRequired]="true">
+                      <dxo-label text="Color"></dxo-label>
+                    </dxi-item>
+                  
+                    <dxi-item class="filter-form-item" dataField="Model" [isRequired]="true">
+                      <dxo-label text="Model"></dxo-label>
+                    </dxi-item>
+
+                    <dxi-item 
+                        itemType="button"
+                        [buttonOptions]="submitButtonOptions">
+                    </dxi-item>
+                  <!-- </dxi-item> -->
+
+                </dxi-item>
+          </dx-form>
+        </form>
+        
+        
+      </div>
+      <!-- add space bottom-->
+      <ion-row style="height:7rem"></ion-row>
+  </div>
+
+  <dx-toast
+            [(visible)]="saving"
+            [type]="type"
+            [message]="message"
+        >  
+            
+        </dx-toast>
+</ion-content>
+
+
